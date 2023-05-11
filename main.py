@@ -22,7 +22,7 @@ def main(page: ft.Page):
         for tunn in tunnels:
             tunnel.stop_tunnel(tunn['public_url'])
         page.clean()
-        page.add(ft.Text("Todas as conexões foram finalizadas com sucesso."))
+        page.add(ft.Text("Todas as conexões foram finalizadas com sucesso.."))
 
     txt_port = ft.TextField(label="Escolha a porta desejada.")
     page.add(ft.Row([txt_port, ft.ElevatedButton("Mapear", on_click=btn_click, icon=ft.icons.LINK)])),
