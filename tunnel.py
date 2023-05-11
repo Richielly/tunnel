@@ -5,20 +5,20 @@ import requests
 import subprocess
 import ssl
 
-
+conf.get_default().ngrok_path = os.getcwd()+ r'\ngrok.exe'
 
 def set_ngrok_auth_token(token = '21YTaWNEb99ey9jMhzHpd_5pdd1qgPoJNcTNryx1SpJ'):
     command = f"ngrok authtoken {token}"
     subprocess.run(command, shell=True)
 
 def start_tunnel(port=2424):
-    pyngrok_config = conf.get_default()
 
-    if not os.path.exists(pyngrok_config.ngrok_path):
-        myssl = ssl.create_default_context();
-        myssl.check_hostname = False
-        myssl.verify_mode = ssl.CERT_NONE
-        installer.install_ngrok(pyngrok_config.ngrok_path, context=myssl)
+    # pyngrok_config = conf.get_default()
+    # if not os.path.exists(pyngrok_config.ngrok_path):
+    #     myssl = ssl.create_default_context();
+    #     myssl.check_hostname = False
+    #     myssl.verify_mode = ssl.CERT_NONE
+    #     installer.install_ngrok(pyngrok_config.ngrok_path, context=myssl)
     # Definindo a porta que será exposta
     # Iniciando o processo do ngrok
     public_url = ngrok.connect(port, "http")
