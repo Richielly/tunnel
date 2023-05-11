@@ -29,7 +29,8 @@ def main(page: ft.Page):
     page.add(ft.ElevatedButton("Fechar todas as conexões", on_click=btn_click_close, icon=ft.icons.CLOSE_OUTLINED, icon_color=ft.colors.ERROR)),
 
 if __name__ == "__main__":
-    ft.app(port= 3636, target=main, view=ft.WEB_BROWSER)
+    ft.app(target=main, port=3636)
+    # ft.app(port= 3636, target=main, view=ft.WEB_BROWSER)
 
 
 # pyinstaller --name redirect_port --onefile --noconsole main.py
