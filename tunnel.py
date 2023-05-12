@@ -1,5 +1,5 @@
 import os.path
-
+import qrcode
 from pyngrok import ngrok, conf, installer
 import requests
 import subprocess
@@ -39,3 +39,18 @@ def iniciar(port=2424):
     set_ngrok_auth_token()
     public_url = start_tunnel(port)
     return public_url
+
+
+def generate_qrcode(url, filename='url-qrcode.png'):
+    qr = qrcode.QRCode(version=1, box_size=10, border=5)
+    qr.add_data(url)
+    qr.make(fit=True)
+
+    img = qr.make_image(fill='green', back_color='white')
+    img.save(filename)
+
+# Exemplo de uso
+url = 'https://www.example.com'
+
+generate_qrcode(url)
+print('QR Code gerado com sucesso!')

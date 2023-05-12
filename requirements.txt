@@ -3,3 +3,4 @@ Pillow>=9.5.0
 pyinstaller>=5.7.0
 pyngrok>=6.0.0
 requests>=2.30.0
+qrcode>=7.4.2

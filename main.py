@@ -22,6 +22,8 @@ def main(page: ft.Page):
             page.add(new_link)
             page.add(ft.ElevatedButton("Fechar todas as conexões", on_click=btn_click_close, icon=ft.icons.CLOSE_OUTLINED,icon_color=ft.colors.ERROR))
             page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+            tunnel.generate_qrcode(url)
+            page.add(ft.Image(src=r"C:\Users\Equiplano\PycharmProjects\tunnel\url-qrcode.png"))
             page.update()
 
     def btn_click_close(e):
