@@ -14,7 +14,7 @@ install:
 - pip install -r requirements.txt
 
 build_script:
-- flet pack main.py --name redirect_port --icon icon_1.png --product-name redirect_port --product-version "1.0.5" --copyright "Copyright (c) 2023 YourCompany Inc."
+- flet pack main.py --name redirect_port --icon icon_1.png --product-name redirect_port --product-version "1.0.11" --copyright "Copyright (c) 2023 YourCompany Inc."
 
 test: off
 
