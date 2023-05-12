@@ -1,7 +1,12 @@
 import flet as ft
 import tunnel as tunnel
-
+import requests
+from datetime import datetime
+import time
 def main(page: ft.Page):
+    page.window_center()
+    data_atual = datetime.now()
+    data_especifica = datetime(2023, 6, 30)
 
     def btn_click(e):
         if not txt_port.value:
@@ -16,6 +21,8 @@ def main(page: ft.Page):
             new_link = ft.FilledTonalButton(url=f"{url}", text=f"Direcionador porta [{port}] : {url}")
             page.add(new_link)
             page.add(ft.ElevatedButton("Fechar todas as conexões", on_click=btn_click_close, icon=ft.icons.CLOSE_OUTLINED,icon_color=ft.colors.ERROR))
+            page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+            page.update()
 
     def btn_click_close(e):
         tunnels = tunnel.list_tunnel()
@@ -25,8 +32,9 @@ def main(page: ft.Page):
         page.add(ft.Text("Todas as conexões foram finalizadas com sucesso.."))
 
     txt_port = ft.TextField(label="Escolha a porta desejada.")
-    page.add(ft.Row([txt_port, ft.ElevatedButton("Mapear", on_click=btn_click, icon=ft.icons.LINK)])),
-    page.add(ft.ElevatedButton("Fechar todas as conexões", on_click=btn_click_close, icon=ft.icons.CLOSE_OUTLINED, icon_color=ft.colors.ERROR)),
+    if not data_atual > data_especifica:
+        page.add(ft.Row([txt_port, ft.ElevatedButton("Mapear", on_click=btn_click, icon=ft.icons.LINK)])),
+    # page.add(ft.ElevatedButton("Fechar todas as conexões", on_click=btn_click_close, icon=ft.icons.CLOSE_OUTLINED, icon_color=ft.colors.ERROR)),
 
 if __name__ == "__main__":
     ft.app(target=main, port=3636)
