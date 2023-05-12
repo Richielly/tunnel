@@ -48,9 +48,3 @@ def generate_qrcode(url, filename='url-qrcode.png'):
 
     img = qr.make_image(fill='green', back_color='white')
     img.save(filename)
-
-# Exemplo de uso
-url = 'https://www.example.com'
-
-generate_qrcode(url)
-print('QR Code gerado com sucesso!')
