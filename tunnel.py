@@ -13,14 +13,13 @@ def set_ngrok_auth_token(token = '21YTaWNEb99ey9jMhzHpd_5pdd1qgPoJNcTNryx1SpJ'):
 
 def start_tunnel(port=2424):
 
-    # pyngrok_config = conf.get_default()
-    # if not os.path.exists(pyngrok_config.ngrok_path):
-    #     myssl = ssl.create_default_context();
-    #     myssl.check_hostname = False
-    #     myssl.verify_mode = ssl.CERT_NONE
-    #     installer.install_ngrok(pyngrok_config.ngrok_path, context=myssl)
-    # Definindo a porta que será exposta
-    # Iniciando o processo do ngrok
+    pyngrok_config = conf.get_default()
+    if not os.path.exists(pyngrok_config.ngrok_path):
+        myssl = ssl.create_default_context();
+        myssl.check_hostname = False
+        myssl.verify_mode = ssl.CERT_NONE
+        installer.install_ngrok(pyngrok_config.ngrok_path, context=myssl)
+
     public_url = ngrok.connect(port, "http")
 
     return public_url.public_url

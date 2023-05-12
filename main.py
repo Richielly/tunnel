@@ -1,10 +1,10 @@
 import flet as ft
 import tunnel as tunnel
-import requests
 from datetime import datetime
-import time
 def main(page: ft.Page):
     page.window_center()
+    page.title = "Redirect Port"
+
     data_atual = datetime.now()
     data_especifica = datetime(2023, 6, 30)
 
