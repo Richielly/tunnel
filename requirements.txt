@@ -2,3 +2,4 @@ flet>=0.3.2
 pyinstaller>=5.7.0
 pyngrok>=6.0.0
 requests>=2.30.0
+Pillow>=9.5.0
