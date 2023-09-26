@@ -5,13 +5,13 @@ import requests
 import subprocess
 import ssl
 
-# conf.get_default().ngrok_path = os.getcwd()+ r'\ngrok.exe'
+conf.get_default().ngrok_path = os.getcwd()+ r'\ngrok.exe'
 
 def set_ngrok_auth_token(token = '2Vi8MYIwRvifQcHLejg4zUCepWz_3V1nB8qCcw6pVATDhRQQg'):
     command = f"ngrok authtoken {token}"
     subprocess.run(command, shell=True)
-    agente = f"ngrok config upgrade"
-    subprocess.run(agente, shell=True)
+    # agente = f"ngrok config add-authtoken 2Vi7N8Xk2LTH0BU5tPDgysmLm10_86EwTxyGZd7kq8HVt5dpv"
+    # subprocess.run(agente, shell=True)
 
 def start_tunnel(port=4040):
 
@@ -52,7 +52,8 @@ def generate_qrcode(url, endpoint, filename='url-qrcode.png'):
 
 # ngrok config upgrade # Tem que rodar depois de rodar o sistema com o token uma vez.
 
-# Emails= equiplanosrh@gmail.com [2Vi7N8Xk2LTH0BU5tPDgysmLm10_86EwTxyGZd7kq8HVt5dpv]
+# Emails=
+# equiplanosrh@gmail.com [2Vi7N8Xk2LTH0BU5tPDgysmLm10_86EwTxyGZd7kq8HVt5dpv]
 # equiplanostm@gmail.com[2Vi83K2j0PzozhcSGfu6l4Yzqma_7RTRY12JfMWFpAy6FQV8M]
 # equiplanoscf@gmail.com[2Vi8MYIwRvifQcHLejg4zUCepWz_3V1nB8qCcw6pVATDhRQQg]
 # Richielly = [21YTaWNEb99ey9jMhzHpd_5pdd1qgPoJNcTNryx1SpJ]

@@ -5,7 +5,7 @@ import tunnel as tunnel
 from datetime import datetime
 def main(page: ft.Page):
     page.window_center()
-    page.title = "Redirect Port SCF"
+    page.title = "Redirect Port SCF v_2.0"
     page.banner
 
     path = os.getcwd()
